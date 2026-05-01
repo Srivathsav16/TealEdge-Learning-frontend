@@ -1,3 +1,6 @@
+export const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "https://tealedge-backend.onrender.com";
+
 export const apiFetch = async (endpoint, options = {}) => {
   const token = localStorage.getItem("jwt_token");
   const headers = {
@@ -6,7 +9,7 @@ export const apiFetch = async (endpoint, options = {}) => {
     ...options.headers,
   };
 
-  const response = await fetch(`http://localhost:8082${endpoint}`, {
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
     ...options,
     headers,
   });
